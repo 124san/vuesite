@@ -1,17 +1,30 @@
 <template>
+
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      With Bootstrap!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <TopBar />
+    <img alt="capital d colon" src="./assets/Dcolon.png">
+    <router-view />
+    <img alt="capital d colon" src="./assets/Dcolon.png">
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import TopBar from './components/TopBar.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    TopBar
   }
 }
 </script>
