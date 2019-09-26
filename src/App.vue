@@ -1,6 +1,8 @@
 <template>
 
   <div id="app">
+    <TopBar />
+    <router-view id="mainframe" />
 
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       With Bootstrap!
@@ -8,11 +10,6 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-
-    <TopBar />
-    <img alt="capital d colon" src="./assets/Dcolon.png">
-    <router-view />
-    <img alt="capital d colon" src="./assets/Dcolon.png">
   </div>
 </template>
 
@@ -34,8 +31,11 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#mainframe {
+  padding: 20px 20px;
 }
 </style>

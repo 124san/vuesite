@@ -1,11 +1,22 @@
 <template>
+
   <div id="nav">
-    <router-link to="/helloworld">Sample</router-link> |
-    <router-link to="/test/safsfsdf">Event Sample</router-link>
+    <div class="linkholder">
+      <router-link class="link" to="/">Front</router-link>
+      <router-link class="link" to="/about">About</router-link>
+      <router-link class="link" to="/rpg">RPG</router-link>
+      <!-- <router-link class="link" to="/test/J">test</router-link> -->
+      <router-link class="link" to="/jsplayground">JS Playground</router-link>
+      <router-link class="link" to="/helloworld" style="float: right">Hello World</router-link>
+    </div>
+
   </div>
 </template>
 
 <script>
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 export default {
   name: 'TopBar',
 }
@@ -13,18 +24,26 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
 a {
-  color: #42b983;
+  color: white;
+  text-decoration: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  float: left;
+  display: block;
+  text-align: center;
+  font-size: 25px;
+  padding: 11.5px 11.5px;
+}
+a:hover {
+  background-color: #80bfff;
+  color: #fefefe;
+}
+
+#nav {
+  background-color: #66b3ff;
+  height: 60px;
+  overflow: hidden;
+  text-align: left;
+  
 }
 </style>
