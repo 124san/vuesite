@@ -1,6 +1,6 @@
 <template>
   <div id='rpg'>
-    <iframe src="https://124sanrpg.azurewebsites.net/www/">
+    <iframe src="https://rpg124san.herokuapp.com/www">
       <p>Your browser does not support iframes.</p>
     </iframe>
   </div>
