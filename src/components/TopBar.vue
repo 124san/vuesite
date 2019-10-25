@@ -2,12 +2,12 @@
 
   <div id="nav">
     <div class="linkholder">
-      <router-link class="link" to="/">Front</router-link>
+      <router-link class="link" to="/">Home</router-link>
       <router-link class="link" to="/about">About</router-link>
       <router-link class="link" to="/rpg">RPG</router-link>
       <!-- <router-link class="link" to="/test/J">test</router-link> -->
-      <router-link class="link" to="/jsplayground">JS Playground</router-link>
-      <router-link class="link" to="/helloworld" style="float: right">Hello World</router-link>
+      <router-link class="link" to="/vuejstest">Vue.js-Test</router-link>
+      <router-link class="link" to="/login" style="float: right">Login</router-link>
     </div>
 
   </div>
