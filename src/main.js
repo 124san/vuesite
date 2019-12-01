@@ -10,10 +10,6 @@ Vue.config.productionTip = false
 Vue.use(vueCookie)
 // set default config
 vueCookie.config('7d')
-
-// set global cookie
-vueCookie.set('theme','default');
-vueCookie.set('hover-time','1s');
 Vue.prototype.$http = axios
 new Vue({
   router,
