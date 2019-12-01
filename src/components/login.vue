@@ -8,16 +8,31 @@
      <label>Password:</label>
      <input required v-model="password" type="password" placeholder="Password"/>
      <hr/>
-     <button type="submit">Login</button>
+     <button class="btn btn-primary" type="submit">Login</button>
    </form>
   </div>
 </template>
 
 <script>
+import router from '../router'
 export default {
   name: 'testPage',
-  props: {
-    msg: String
+  data: function () {
+    return {
+      username: "",
+      password: "",
+    }
+  },
+  methods: {
+    login: function() {
+      var form = {username: this.username, password: this.password}
+      this.$http.post('/login', form).then(res => {
+        alert("Logged in!")
+        router.push("/");
+      }).catch(err => {
+        console.log(err)
+      })
+    }
   }
 }
 </script>

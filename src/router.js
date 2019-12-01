@@ -6,8 +6,33 @@ import about from './components/About.vue'
 import jsplayground from './components/jsplayground.vue'
 import rpg from './components/rpg.vue'
 import login from './components/login.vue'
+import dashboard from './components/dashboard.vue'
+import axios from 'axios'
 
 Vue.use(Router)
+function isAuth(callback) {
+  axios.get("/user")    
+  .then((response) => {    
+    callback(true)
+  })    
+  .catch((errors) => {    
+    callback(false)
+  })   
+}
+
+function requireAuth (to, from, next) {
+  isAuth(res => {
+    if (!res){
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    }
+    else {
+      next()
+    }
+  })
+}
 
 export default new Router({
   mode: 'history',
@@ -38,17 +63,41 @@ export default new Router({
     {
       path: '/rpg',
       name: 'rpg',
+      beforeEnter: requireAuth,
       component: rpg
     },
     {
       path: '/login',
       name: 'login',
-      component: login
+      component: login,
+      beforeEnter (to, from, next) {
+        isAuth(res=> {
+          if (res){
+            next({
+              path: '/dashboard',
+              query: { redirect: to.fullPath }
+            })
+          }
+          else {
+            next()
+          }
+        })
+      }
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: dashboard,
+      beforeEnter: requireAuth
+    },
+    {
+      path: '/logout',
+      name: 'logout',
+      beforeEnter (to, from, next) {
+        axios.get('/logout').then(res => {
+          next('/')
+        })
+      }
     }
-    // ,{
-    //   path: '/',
-    //   name: 'sample',
-    //   component: () => import('./views/Sample.vue')
-    // }
   ]
 })

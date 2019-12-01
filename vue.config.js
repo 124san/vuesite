@@ -1,3 +1,6 @@
+
 module.exports = {
-    // options...
+    devServer: {
+        proxy: 'https://express124san.herokuapp.com'
+    }
 }

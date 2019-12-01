@@ -1,6 +1,6 @@
 <template>
   <div id='jsplayground'>
-    <h2>Hearthstone Mass Hysteria Calculator</h2>
+    <h2>Hearthstone Mass Hysteria Simulator</h2>
     Attack:
     <input v-model="Atk">
     <br>
