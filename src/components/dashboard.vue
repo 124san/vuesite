@@ -19,7 +19,7 @@
         methods: {    
             getUserData: function() {    
                 let self = this    
-                self.$http.get("/user")    
+                self.$http.get("/user", {withCredentials: true})    
                     .then((response) => {    
                         console.log(response)    
                         self.$set(this, "user", response.data)    

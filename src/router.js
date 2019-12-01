@@ -13,7 +13,7 @@ axiosDefaults.baseURL = process.env.API_URL || "https://express124san.herokuapp.
 
 Vue.use(Router)
 function isAuth(callback) {
-  axios.get("/user")    
+  axios.get("/user", {withCredentials: true})    
   .then((response) => {    
     callback(true)
   })    

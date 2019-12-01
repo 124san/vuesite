@@ -26,7 +26,7 @@ export default {
   methods: {
     login: function() {
       var form = {username: this.username, password: this.password}
-      this.$http.post('/login', form).then(res => {
+      this.$http.post('/login', form, {withCredentials: true}).then(res => {
         alert("Logged in!")
         router.push("/");
       }).catch(err => {
