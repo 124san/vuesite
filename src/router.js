@@ -96,7 +96,7 @@ export default new Router({
       path: '/logout',
       name: 'logout',
       beforeEnter (to, from, next) {
-        axios.get('/logout').then(res => {
+        axios.get('/logout', {withCredentials: true}).then(res => {
           next('/')
         })
       }

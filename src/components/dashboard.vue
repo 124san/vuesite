@@ -2,7 +2,8 @@
 <template>
     <div>    
         <h2>Dashboard</h2>    
-        <p>Name: {{ user.username }}</p>    
+        <p>Name: {{ user.username }}</p>
+        <button v-on:click="logout" class="btn btn-primary">Logout</button>    
     </div>
 </template>
 <script>
@@ -28,7 +29,10 @@
                         console.log(errors)    
                         router.push("/")    
                     })    
-            }    
+            }  , 
+            logout: function() {
+                router.push("/logout")
+            } 
         },    
         mounted() {    
             this.getUserData()    

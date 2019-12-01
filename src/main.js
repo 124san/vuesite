@@ -11,6 +11,15 @@ Vue.use(vueCookie)
 // set default config
 vueCookie.config('7d')
 Vue.prototype.$http = axios
+Vue.prototype.isAuth = function(callback) {
+  axios.get("/user", {withCredentials: true})    
+  .then((response) => {    
+    callback(true)
+  })    
+  .catch((errors) => {    
+    callback(false)
+  })   
+}
 new Vue({
   router,
   render: h => h(App),
