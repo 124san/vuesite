@@ -8,6 +8,8 @@ import rpg from './components/rpg.vue'
 import login from './components/login.vue'
 import dashboard from './components/dashboard.vue'
 import axios from 'axios'
+import axiosDefaults from 'axios/lib/defaults'
+axiosDefaults.baseURL = process.env.API_URL || "https://express124san.herokuapp.com"
 
 Vue.use(Router)
 function isAuth(callback) {
