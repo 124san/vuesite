@@ -8,6 +8,12 @@ axiosDefaults.baseURL = process.env.API_URL || "https://express124san.herokuapp.
 
 Vue.config.productionTip = false
 Vue.use(vueCookie)
+// set default config
+VueCookies.config('7d')
+
+// set global cookie
+VueCookies.set('theme','default');
+VueCookies.set('hover-time','1s');
 Vue.prototype.$http = axios
 new Vue({
   router,
