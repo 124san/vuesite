@@ -10,6 +10,7 @@
      <hr/>
      <button class="btn btn-primary" type="submit">Login</button>
    </form>
+   <button class="btn btn-primary" id="regButton" v-on:click="toRegister">Register</button>
   </div>
 </template>
 
@@ -32,6 +33,9 @@ export default {
       }).catch(err => {
         console.log(err)
       })
+    },
+    toRegister: function() {
+      router.push("/register")
     }
   }
 }
@@ -52,5 +56,8 @@ li {
 }
 a {
   color: #42b983;
+}
+#regButton {
+  display: inline
 }
 </style>

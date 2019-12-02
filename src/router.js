@@ -7,13 +7,15 @@ import jsplayground from './components/jsplayground.vue'
 import rpg from './components/rpg.vue'
 import login from './components/login.vue'
 import dashboard from './components/dashboard.vue'
+import register from './components/register.vue'
+
 import axios from 'axios'
 import axiosDefaults from 'axios/lib/defaults'
 axiosDefaults.baseURL = process.env.API_URL || "https://express124san.herokuapp.com"
 
 Vue.use(Router)
 function isAuth(callback) {
-  axios.get("/user", {withCredentials: true})    
+  axios.get("/users/current", {withCredentials: true})    
   .then((response) => {    
     callback(true)
   })    
@@ -72,6 +74,24 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: login,
+      beforeEnter (to, from, next) {
+        isAuth(res=> {
+          if (res){
+            next({
+              path: '/dashboard',
+              query: { redirect: to.fullPath }
+            })
+          }
+          else {
+            next()
+          }
+        })
+      }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: register,
       beforeEnter (to, from, next) {
         isAuth(res=> {
           if (res){
