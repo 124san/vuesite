@@ -7,7 +7,7 @@
       <router-link class="link" to="/rpg">RPG</router-link>
       <!-- <router-link class="link" to="/test/J">test</router-link> -->
       <router-link class="link" to="/vuejstest">Vue.js-Test</router-link>
-      <router-link class="link" to="/login" style="float: right">Login</router-link>
+      <router-link class="link" to="/login" style="float: right">{{ username }}</router-link>
     </div>
 
   </div>
@@ -18,8 +18,26 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default {
-  name: 'TopBar',
-}
+  name: "TopBar",
+  data() {
+    return {
+      username: "Login",
+    };
+  },
+  methods: {
+    getUserData: function() {
+      this.$http.get("/users/current", { withCredentials: true, credentials: 'same-origin' }).then(response => {
+        this.$set(this, "username", response.data.username);
+      }).catch(errors => {
+        this.$set(this, "username", "Login");
+        console.log(errors);
+      });
+    }
+  },
+  mounted() {
+    this.getUserData();
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

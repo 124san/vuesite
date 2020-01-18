@@ -1,20 +1,21 @@
 <template>
   <div id='jsplayground'>
     <h2>Hearthstone Mass Hysteria Simulator</h2>
-    Attack:
-    <input v-model="Atk">
-    <br>
-    Health:
-    <input v-model="HP">
-    <br>
-    <br>
+    <div class="form-group">
+      <label class="label">Attack</label>
+      <input v-model="Atk" class="form-control">
+    </div>
+    <div class="form-group">
+      <label class="label">Health</label>
+      <input v-model="HP" class="form-control">
+    </div>
     <button v-on:click="add1" class="btn btn-primary">Add</button>
     <button v-on:click="empty" class="btn btn-primary">Empty</button>
     <button v-on:click="fite" class="btn btn-primary">Fite!</button>
     <p>ATK:{{ Atk }}, HP: {{HP}}</p>
     <ul id="v-for-object" class="demo">
       <li v-for="value in Arr">
-        {{ value }}
+        Creature ID: {{ value[2] }}, <span style="color:red;">ATK:</span> {{ value[0] }}, <span style="color:#19d42f;">HP:</span> {{ value[1] }}
       </li>
     </ul>
   </div>
@@ -30,20 +31,23 @@ export default {
     return {
       Atk: 1,
       HP: 1,
+      Id: 1,
       Arr: []
     }
   },
   methods: {
     add1: function () {
-      var tup = [parseInt(this.Atk), parseInt(this.HP)]
+      var id = parseInt(this.Id)
+      var tup = [parseInt(this.Atk), parseInt(this.HP), id]
+      this.Id = id + 1
       this.Arr.push(tup)
     },
     empty: function () {
       this.Arr = [];
+      this.Id = 1;
     },
     fite: function() {
       // Skip each minion that already fite
-      alert("Ready? Set? Go!")
       let skipped = []
       for (let i = 0; i < this.Arr.length; i++) {
         skipped.push(false)
@@ -123,5 +127,8 @@ export default {
 <style scoped>
 button {
   margin-right: 5px;
+}
+.label {
+  font-weight: bold
 }
 </style>
