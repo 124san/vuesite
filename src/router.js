@@ -12,7 +12,7 @@ import register from './components/register.vue'
 import axios from 'axios'
 Vue.use(Router)
 function isAuth(callback) {
-  axios.get("/users/current", {withCredentials: true})    
+  axios.get("/users/current", {withCredentials: true, credentials: 'same-origin'})    
   .then((response) => {    
     callback(true)
   })    

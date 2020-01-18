@@ -3,10 +3,12 @@
   <div>
     <h2>Dashboard</h2>
     <p>Name: {{ user.username }}</p>
-    <p>Description: {{ user.description }}</p>Modify Description:
-    <input v-model="newDescription" />
+    <p>Description: {{ user.description }}</p>
+    <div class="form-group">
+      <label>Modify Description:</label>
+      <input v-model="newDescription" class="form-control"/>
+    </div>
     <button v-on:click="modifyDescription" id="modify-btn" class="btn btn-primary">Modify</button>
-    <br />
     <button v-on:click="logout" class="btn btn-primary">Logout</button>
   </div>
 </template>
@@ -24,7 +26,7 @@ export default {
   },
   methods: {
     getUserData: function() {
-      this.$http.get("/users/current", { withCredentials: true }).then(response => {
+      this.$http.get("/users/current", { withCredentials: true, credentials: 'same-origin' }).then(response => {
         this.$set(this, "user", response.data);
       }).catch(errors => {
         console.log(errors);
@@ -50,6 +52,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #modify-btn {
-  margin-left: 5px;
+  margin-right: 10px;
 }
 </style>

@@ -1,16 +1,18 @@
 <template>
   <div class="hello">
     <form class="login" @submit.prevent="login">
-     <h1>Sign in</h1>
-     <label>Username:</label>
-     <input required v-model="username" type="text" placeholder="Username"/>
-     <br>
-     <label>Password:</label>
-     <input required v-model="password" type="password" placeholder="Password"/>
-     <hr/>
+     <h1>Login</h1>
+     <div class="form-group">
+      <label>Username</label>
+      <input required v-model="username" type="text" placeholder="Username" class="form-control"/>
+     </div>
+     <div class="form-group">
+      <label>Password</label>
+      <input required v-model="password" type="password" placeholder="Password" class="form-control"/>
+     </div>
      <button class="btn btn-primary" type="submit">Login</button>
    </form>
-   <button class="btn btn-primary" id="regButton" v-on:click="toRegister">Register</button>
+   <router-link :to="{ path: '/register'}">Don't have an account? Click here to register.</router-link>
   </div>
 </template>
 
@@ -27,15 +29,12 @@ export default {
   methods: {
     login: function() {
       var form = {username: this.username, password: this.password}
-      this.$http.post('/login', form, {withCredentials: true}).then(res => {
+      this.$http.post('/login', form, {withCredentials: true, credentials: 'same-origin'}).then(res => {
         alert("Logged in!")
         router.push("/");
       }).catch(err => {
         console.log(err)
       })
-    },
-    toRegister: function() {
-      router.push("/register")
     }
   }
 }
@@ -54,10 +53,13 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
-}
 #regButton {
-  display: inline
+  display: inline;
+}
+#usernameText {
+  font-weight: bold;
+}
+.login {
+  margin-bottom: 10px;
 }
 </style>
