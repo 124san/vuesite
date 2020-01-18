@@ -31,7 +31,6 @@ export default {
       var form = {username: this.username, password: this.password}
       this.$http.post('/login', form, {withCredentials: true, credentials: 'same-origin'}).then(res => {
         alert("Logged in!")
-        import Vue from 'vue';
         Vue.forceUpdate();
         router.push("/");
       }).catch(err => {
