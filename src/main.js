@@ -4,7 +4,7 @@ import router from './router'
 import axios from 'axios'
 import vueCookie from 'vue-cookies'
 import axiosDefaults from 'axios/lib/defaults'
-axiosDefaults.baseURL = process.env.API_URL || "https://express124san.herokuapp.com"
+axiosDefaults.baseURL = process.env.API_URL || "http://localhost:3000"
 
 Vue.config.productionTip = false
 Vue.use(vueCookie)

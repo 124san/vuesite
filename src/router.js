@@ -10,9 +10,6 @@ import dashboard from './components/dashboard.vue'
 import register from './components/register.vue'
 
 import axios from 'axios'
-import axiosDefaults from 'axios/lib/defaults'
-axiosDefaults.baseURL = process.env.API_URL || "https://express124san.herokuapp.com"
-
 Vue.use(Router)
 function isAuth(callback) {
   axios.get("/users/current", {withCredentials: true})    
