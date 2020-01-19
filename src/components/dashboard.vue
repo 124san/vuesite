@@ -35,7 +35,6 @@ export default {
     },
     logout: function() {
       router.push("/logout");
-      Vue.forceUpdate();
     },
     modifyDescription: function() {
       this.$http.put("/users/" + this.user._id, { description: this.newDescription }).then(res => {
