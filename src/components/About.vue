@@ -23,14 +23,14 @@
         To logout, go to dashboard page and click "logout" button.
     </p>
     <p>
-      RPG page and dashboard page are protected by authentication. When not logged in, those page cannot be accessed, and trying to access those pages will result in being redirected to login page.
+      The RPG page and dashboard page are protected by authentication. When not logged in, those page cannot be accessed, and trying to access those pages will result in being redirected to login page.
     </p>
     <p>
-      Vue.js-Test page currently has a simple simulator for <a href="https://hearthstone.gamepedia.com/Mass_Hysteria">Mass Hysteria</a>, a card from the card game HearthStone. You can create some creatures with attack and defense and then let them fight 
+      The RPG page has a sample RPG project made with RPG Maker. It is only accessable when logged in.
+    </p>
+    <p>
+      The Vue.js-Test page has a simple simulator for <a href="https://hearthstone.gamepedia.com/Mass_Hysteria">Mass Hysteria</a>, a card from the card game HearthStone. You can create some creatures with attack and defense and then let them fight 
       each other randomly. Each creature is labeled by a unique ID, so you can see which creatures survive the battle and which bite the dust.
-    </p>
-    <p>
-      RPG page has a sample RPG project made by me. It is accessable when logged in.
     </p>
   </div>
 </template>
